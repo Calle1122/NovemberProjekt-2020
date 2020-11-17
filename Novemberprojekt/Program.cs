@@ -13,18 +13,24 @@ namespace Novemberprojekt
             Color darkestGreen = new Color (15, 56, 15, 255);
 
             Raylib.InitWindow(1000, 800, "Slime Shooter");
+            Raylib.SetTargetFPS(60);
 
-            Raylib.SetTargetFPS(60); //Sätter fps till 60.
+            Player myPlayer = new Player(500, 400, KeyboardKey.KEY_W, KeyboardKey.KEY_S, KeyboardKey.KEY_D, KeyboardKey.KEY_A);
 
             while (!Raylib.WindowShouldClose())
             {
+            myPlayer.Update();
+
             Raylib.BeginDrawing();
       
-            Raylib.ClearBackground(lightGreen);
+            Raylib.ClearBackground(lightestGreen);
             
-            Raylib.DrawRectangle(100, 100, 30, 60, darkGreen);
+            Raylib.DrawRectangle(100, 100, 30, 60, lightGreen);
             
+            myPlayer.Draw();
+
             Raylib.EndDrawing();
+
             }
 
         }
