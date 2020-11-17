@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Raylib_cs;
 
 namespace Novemberprojekt
@@ -17,8 +18,6 @@ namespace Novemberprojekt
         public Player(float xStart, float yStart, KeyboardKey up, KeyboardKey down, KeyboardKey right, KeyboardKey left)
     {
       playerRec = new Rectangle(xStart, yStart, 30, 50);
-      // x = xStart;
-      // y = yStart;
       upKey = up;
       downKey = down;
       rightKey = right;
