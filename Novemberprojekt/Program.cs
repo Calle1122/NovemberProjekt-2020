@@ -34,8 +34,6 @@ namespace Novemberprojekt
       
             Raylib.ClearBackground(lightestGreen);
             
-            Raylib.DrawRectangle(100, 100, 30, 60, lightGreen);
-            
             myPlayer.Draw();
             Bullet.DrawAll();
 
