@@ -21,7 +21,9 @@ namespace Novemberprojekt
 
             Player myPlayer = new Player(500, 400, KeyboardKey.KEY_W, KeyboardKey.KEY_S, KeyboardKey.KEY_D, KeyboardKey.KEY_A);
 
-            Wall gameWalls = new Wall();            
+            Wall gameWalls = new Wall();        
+
+            UI gameUI = new UI();    
 
             while (!Raylib.WindowShouldClose())
             {
@@ -34,6 +36,7 @@ namespace Novemberprojekt
       
             Raylib.ClearBackground(lightestGreen);
             
+            gameUI.DrawUI();
             myPlayer.Draw();
             Bullet.DrawAll();
             gameWalls.Draw();
