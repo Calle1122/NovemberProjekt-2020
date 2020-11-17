@@ -13,15 +13,17 @@ namespace Novemberprojekt
             Color darkGreen = new Color (48, 98, 48, 255);
             Color darkestGreen = new Color (15, 56, 15, 255);
 
-            
-
             Raylib.InitWindow(1000, 800, "Slime Shooter");
             Raylib.SetTargetFPS(60);
 
 
             Player myPlayer = new Player(500, 400, KeyboardKey.KEY_W, KeyboardKey.KEY_S, KeyboardKey.KEY_D, KeyboardKey.KEY_A);
 
-            Wall gameWalls = new Wall();        
+            Rectangle playerCollider = myPlayer.playerRec; 
+
+            Wall gameWalls = new Wall(); 
+
+            List<Rectangle> wallColliders = gameWalls.wallList;       
 
             UI gameUI = new UI();    
 
@@ -44,7 +46,10 @@ namespace Novemberprojekt
             if(Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
-            }           
+            }
+
+            bool areOverlapping = Raylib.CheckCollisionRecs(playerCollider, wallColliders[1]);
+            Raylib.DrawText("Colliding: " + areOverlapping, 500, 0, 50, darkestGreen);
 
             Raylib.EndDrawing();
 

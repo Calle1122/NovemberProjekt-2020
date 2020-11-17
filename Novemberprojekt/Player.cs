@@ -48,6 +48,22 @@ namespace Novemberprojekt
           playerRec.x -= 4f;
           lastKeyPressed = KeyboardKey.KEY_A;
       }
+
+      if (playerRec.x < 50){
+        playerRec.x = 50;
+      }
+
+      if (playerRec.x > 920){
+        playerRec.x = 920;
+      }
+
+      if (playerRec.y < 200){
+        playerRec.y = 200;
+      }
+
+      if (playerRec.y > 700){
+        playerRec.y = 700;
+      }
     }
 
     public void Draw()

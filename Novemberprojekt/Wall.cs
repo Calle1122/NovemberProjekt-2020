@@ -8,11 +8,18 @@ namespace Novemberprojekt
     {
         Color lightGreen = new Color(139, 172, 15, 255);
 
+        static public Rectangle leftRec = new Rectangle(0, 150, 50, 850);
+        static public Rectangle rightRec = new Rectangle(950, 150, 50, 850);
+        static public Rectangle upperRec = new Rectangle(0, 150, 1000, 50);
+        static public Rectangle lowerRec = new Rectangle(0, 750, 1000, 50);
+        
+        public List<Rectangle> wallList = new List<Rectangle>() {leftRec, rightRec, upperRec, lowerRec}; 
+
         public void Draw(){
-            Raylib.DrawRectangle(0, 150, 50, 850, lightGreen);
-            Raylib.DrawRectangle(950, 150, 50, 850, lightGreen);
-            Raylib.DrawRectangle(0, 150, 1000, 50, lightGreen);
-            Raylib.DrawRectangle(0, 750, 1000, 50, lightGreen);
+            Raylib.DrawRectangleRec(leftRec, lightGreen);
+            Raylib.DrawRectangleRec(rightRec, lightGreen);
+            Raylib.DrawRectangleRec(upperRec, lightGreen);
+            Raylib.DrawRectangleRec(lowerRec, lightGreen);
         }
     }
 }
