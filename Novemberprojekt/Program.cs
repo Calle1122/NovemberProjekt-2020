@@ -13,7 +13,7 @@ namespace Novemberprojekt
             Color darkGreen = new Color (48, 98, 48, 255);
             Color darkestGreen = new Color (15, 56, 15, 255);
 
-            List<Bullet> bullets = new List<Bullet>();
+            
 
             Raylib.InitWindow(1000, 800, "Slime Shooter");
             Raylib.SetTargetFPS(60);
@@ -24,6 +24,7 @@ namespace Novemberprojekt
             while (!Raylib.WindowShouldClose())
             {
             myPlayer.Update();
+            Bullet.UpdateAll();
 
             Raylib.BeginDrawing();
       
@@ -32,25 +33,12 @@ namespace Novemberprojekt
             Raylib.DrawRectangle(100, 100, 30, 60, lightGreen);
             
             myPlayer.Draw();
+            Bullet.DrawAll();
 
             if(Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y);
-
-                bullets.Add(newBullet);
-            }
-
-            
-            foreach (Bullet b in bullets)
-            {
-                b.Update();
-            }
-
-            foreach (Bullet b in bullets)
-            {
-                b.Draw();
-            }
-            
+            }           
 
             Raylib.EndDrawing();
 
