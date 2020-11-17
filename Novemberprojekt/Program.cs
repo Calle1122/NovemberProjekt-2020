@@ -21,10 +21,14 @@ namespace Novemberprojekt
 
             Player myPlayer = new Player(500, 400, KeyboardKey.KEY_W, KeyboardKey.KEY_S, KeyboardKey.KEY_D, KeyboardKey.KEY_A);
 
+            
+
             while (!Raylib.WindowShouldClose())
             {
             myPlayer.Update();
             Bullet.UpdateAll();
+
+            KeyboardKey keyPressed = myPlayer.lastKeyPressed;
 
             Raylib.BeginDrawing();
       
@@ -37,7 +41,7 @@ namespace Novemberprojekt
 
             if(Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
-                Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y);
+                Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
             }           
 
             Raylib.EndDrawing();

@@ -8,6 +8,8 @@ namespace Novemberprojekt
     {
         Color darkGreen = new Color (48, 98, 48, 255);
 
+        public KeyboardKey lastKeyPressed;
+
         public Rectangle playerRec;
 
         public KeyboardKey upKey;
@@ -29,18 +31,22 @@ namespace Novemberprojekt
       if (Raylib.IsKeyDown(upKey))
       {
         playerRec.y -= 4f;
+        lastKeyPressed = KeyboardKey.KEY_W;
       }
       if (Raylib.IsKeyDown(downKey))
       {
         playerRec.y += 4f;
+        lastKeyPressed = KeyboardKey.KEY_S;
       }
       if (Raylib.IsKeyDown(rightKey))
       {
           playerRec.x += 4f;
+          lastKeyPressed = KeyboardKey.KEY_D;
       }
       if (Raylib.IsKeyDown(leftKey))
       {
           playerRec.x -= 4f;
+          lastKeyPressed = KeyboardKey.KEY_A;
       }
     }
 

@@ -7,23 +7,41 @@ namespace Novemberprojekt
     
     public class Bullet
     {
-
+        KeyboardKey initKey;
+        public float bulletVelocity;
         public static List<Bullet> bullets = new List<Bullet>();
 
         Color darkGreen = new Color (48, 98, 48, 255);
 
         public Rectangle bulletRec;
 
-        public Bullet(float xStart, float yStart)
+        public Bullet(float xStart, float yStart, KeyboardKey keyPressed)
     {
       bulletRec = new Rectangle(xStart, yStart, 10, 10);
 
       bullets.Add(this);
 
+      initKey = keyPressed;
+
     }
 
     public void Update(){
-        bulletRec.y -= 6f;
+        if (initKey == KeyboardKey.KEY_W){
+            bulletRec.y -= 6f;
+        }
+
+        else if (initKey == KeyboardKey.KEY_S){
+            bulletRec.y += 6f;
+        }
+
+        else if (initKey == KeyboardKey.KEY_D){
+            bulletRec.x += 6f;
+        }
+
+        else if (initKey == KeyboardKey.KEY_A){
+            bulletRec.x -= 6f;
+        }
+        
     }
 
     public static void UpdateAll(){
