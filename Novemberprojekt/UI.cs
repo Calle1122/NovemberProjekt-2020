@@ -4,10 +4,8 @@ using Raylib_cs;
 
 namespace Novemberprojekt
 {
-    public class Walls
+    public class UI
     {
-        Color lightGreen = new Color(139, 172, 15, 255);
-
         
     }
 }
