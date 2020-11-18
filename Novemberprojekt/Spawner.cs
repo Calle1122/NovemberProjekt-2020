@@ -6,7 +6,13 @@ namespace Novemberprojekt
 {
     public class Spawner
     {
+        Random generator = new Random();
+
         Color lightGreen = new Color(139, 172, 15, 255);
+
+        public void SpawnerId(){
+            int spawnerId = generator.Next(1,5);
+        }
 
         public void Draw(){
             Raylib.DrawCircle(110, 260, 30f, lightGreen);

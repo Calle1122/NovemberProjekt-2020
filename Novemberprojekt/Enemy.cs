@@ -9,20 +9,28 @@ namespace Novemberprojekt
         Random generator = new Random();
         int Score = 0;
         int HiScore;
+        int enemyHp;
+        float enemySpeed;
 
         public static List<Enemy> enemies = new List<Enemy>();
 
         Color darkestGreen = new Color (15, 56, 15, 255);
 
-        public Enemy(){
+        public Enemy(int spawnX, int spawnY){
             int enemyType = generator.Next(1,3);
 
             if(enemyType == 1){
-                //Gör en liten snabb enemy
+                enemyHp = 1;
+                enemySpeed = 6f;
+
+                Rectangle enemyRec = new Rectangle(spawnX, spawnY, 20, 20);
             }
 
             else {
-                //Gör en stor långsam enemy
+                enemyHp = 3;
+                enemySpeed = 2;
+
+                Rectangle enemyRec = new Rectangle(spawnX, spawnY, 40, 40);
             }
             
             enemies.Add(this);
