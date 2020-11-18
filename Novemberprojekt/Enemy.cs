@@ -12,28 +12,101 @@ namespace Novemberprojekt
         int enemyHp;
         float enemySpeed;
 
+        int xValue;
+        int yValue;
+
+        Rectangle enemyRec = new Rectangle(0, 0, 0, 0);
+
         public static List<Enemy> enemies = new List<Enemy>();
 
         Color darkestGreen = new Color (15, 56, 15, 255);
 
-        public Enemy(int spawnX, int spawnY){
+        public Enemy(){
             int enemyType = generator.Next(1,3);
 
             if(enemyType == 1){
                 enemyHp = 1;
-                enemySpeed = 6f;
+                enemySpeed = 4f;
 
-                Rectangle enemyRec = new Rectangle(spawnX, spawnY, 20, 20);
+                enemyRec = new Rectangle(0, 0, 20, 20);
             }
 
-            else {
+            else if(enemyType == 2){
                 enemyHp = 3;
-                enemySpeed = 2;
+                enemySpeed = 2f;
 
-                Rectangle enemyRec = new Rectangle(spawnX, spawnY, 40, 40);
+                enemyRec = new Rectangle(0, 0, 40, 40);
             }
             
             enemies.Add(this);
         }
+
+        public void SpawnEnemy(int SpawnerId){
+            if(Raylib.IsKeyPressed(KeyboardKey.KEY_F)){
+                if(SpawnerId == 1){
+                xValue = 110;
+                yValue = 260;
+            }
+
+            else if(SpawnerId == 2){
+                xValue = 900;
+                yValue = 260;
+            }
+
+            else if (SpawnerId == 3){
+                xValue = 110;
+                yValue = 700;
+            }
+
+            else {
+                xValue = 900;
+                yValue = 700;
+            }
+
+            enemyRec.x = xValue;
+            enemyRec.y = yValue;
+
+
+
+            } 
+        }
+
+        public void Update(int playerX, int playerY){
+            if (playerX > enemyRec.x){
+                enemyRec.x += enemySpeed;
+            }
+
+            if (playerX < enemyRec.x){
+                enemyRec.x -= enemySpeed;
+            }
+
+            if (playerY > enemyRec.y){
+                enemyRec.y += enemySpeed;
+            }
+
+            if (playerY < enemyRec.y){
+                enemyRec.y -= enemySpeed;
+            }
+        }
+
+        public static void UpdateAll(float playerX, float playerY){
+            int playerXint = (int) playerX;
+            int playerYint = (int) playerY;
+            
+            foreach (Enemy e in enemies){
+                e.Update(playerXint, playerYint);
+            }
+        }
+
+        public void Draw(){
+            Raylib.DrawRectangleRec(enemyRec, darkestGreen);
+        }
+
+        public static void DrawAll(){
+            foreach (Enemy e in enemies){
+                e.Draw();
+            }
+        }
+
     }
 }

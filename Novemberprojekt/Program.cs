@@ -27,10 +27,17 @@ namespace Novemberprojekt
 
             Spawner mobSpawners = new Spawner();
 
+            Enemy activeEnemies = new Enemy();
+
             while (!Raylib.WindowShouldClose())
             {
+            int spawner = mobSpawners.SpawnerId();
+
+            activeEnemies.SpawnEnemy(spawner);
+
             myPlayer.Update();
             Bullet.UpdateAll();
+            Enemy.UpdateAll(playerCollider.x, playerCollider.y);
 
             KeyboardKey keyPressed = myPlayer.lastKeyPressed;
 
@@ -42,8 +49,13 @@ namespace Novemberprojekt
             gameUI.DrawUI();
             myPlayer.Draw();
             Bullet.DrawAll();
+            Enemy.DrawAll();
             gameWalls.Draw();
-            
+
+            if(Raylib.IsKeyPressed(KeyboardKey.KEY_G))
+            {
+                Enemy newEnemy = new Enemy();
+            }
 
             if(Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {

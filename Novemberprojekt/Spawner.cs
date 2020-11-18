@@ -10,8 +10,10 @@ namespace Novemberprojekt
 
         Color lightGreen = new Color(139, 172, 15, 255);
 
-        public void SpawnerId(){
+        public int SpawnerId(){
             int spawnerId = generator.Next(1,5);
+
+            return spawnerId;
         }
 
         public void Draw(){
