@@ -58,9 +58,24 @@ namespace Novemberprojekt
     public static void DrawAll(){
         foreach (Bullet b in bullets)
             {
-                b.Draw();
+                if (b.bulletRec.y > 150){
+                    b.Draw();
+                }  
             }
     }
+
+    //Koden nedan används inte atm
+    /*public void Destroy(){
+        if(bulletRec.y < 150){
+            
+        }
+    }*/
+
+    /*public static void DestroyAll(){
+        foreach (Bullet b in bullets){
+            
+        }
+    }*/
         
     }
 }

@@ -21,11 +21,11 @@ namespace Novemberprojekt
 
             Rectangle playerCollider = myPlayer.playerRec; 
 
-            Wall gameWalls = new Wall(); 
-
-            List<Rectangle> wallColliders = gameWalls.wallList;       
+            Wall gameWalls = new Wall();        
 
             UI gameUI = new UI();    
+
+            Spawner mobSpawners = new Spawner();
 
             while (!Raylib.WindowShouldClose())
             {
@@ -38,18 +38,28 @@ namespace Novemberprojekt
       
             Raylib.ClearBackground(lightestGreen);
             
+            mobSpawners.Draw();
             gameUI.DrawUI();
             myPlayer.Draw();
             Bullet.DrawAll();
             gameWalls.Draw();
+            
 
             if(Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
             }
 
-            bool areOverlapping = Raylib.CheckCollisionRecs(playerCollider, wallColliders[1]);
-            Raylib.DrawText("Colliding: " + areOverlapping, 500, 0, 50, darkestGreen);
+            //Följande kodblock fungerar inte!
+            foreach (Rectangle r in Wall.wallList){
+                bool areOverlapping = Raylib.CheckCollisionRecs(playerCollider, r);
+
+                if (areOverlapping == true){
+                    Raylib.DrawText("Colliding: " + areOverlapping, 500, 0, 50, darkestGreen);
+                }
+            }
+
+            
 
             Raylib.EndDrawing();
 

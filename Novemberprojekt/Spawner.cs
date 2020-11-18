@@ -6,8 +6,13 @@ namespace Novemberprojekt
 {
     public class Spawner
     {
-        Color darkestGreen = new Color (15, 56, 15, 255);
+        Color lightGreen = new Color(139, 172, 15, 255);
 
-        
+        public void Draw(){
+            Raylib.DrawCircle(110, 260, 30f, lightGreen);
+            Raylib.DrawCircle(900, 260, 30f, lightGreen);
+            Raylib.DrawCircle(110, 700, 30f, lightGreen);
+            Raylib.DrawCircle(900, 700, 30f, lightGreen);
+        }
     }
 }

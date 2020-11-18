@@ -13,7 +13,7 @@ namespace Novemberprojekt
         static public Rectangle upperRec = new Rectangle(0, 150, 1000, 50);
         static public Rectangle lowerRec = new Rectangle(0, 750, 1000, 50);
         
-        public List<Rectangle> wallList = new List<Rectangle>() {leftRec, rightRec, upperRec, lowerRec}; 
+        public static List<Rectangle> wallList = new List<Rectangle>() {leftRec, rightRec, upperRec, lowerRec}; 
 
         public void Draw(){
             Raylib.DrawRectangleRec(leftRec, lightGreen);
