@@ -42,6 +42,7 @@ namespace Novemberprojekt
         }
 
         public void DestroyEnemy(Rectangle bulletCollider){
+
             if(Raylib.CheckCollisionRecs(bulletCollider, enemyRec) == true){
                 enemies.Remove(this);
 
@@ -52,8 +53,11 @@ namespace Novemberprojekt
         }
 
         public static void DestroyEnemyCheckAll(Rectangle bulletCollider){
-            foreach (Enemy e in enemies){
+
+            if (enemies.Count > 0){
+                foreach (Enemy e in enemies){
                 e.DestroyEnemy(bulletCollider);
+            }
             }
         }
 

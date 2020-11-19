@@ -45,9 +45,14 @@ namespace Novemberprojekt
       
             Raylib.ClearBackground(lightestGreen);
             
-            foreach(Bullet b in Bullet.bullets){
+            if(Bullet.bullets.Count > 0){
+                if(Enemy.enemies.Count > 0){
+                    foreach(Bullet b in Bullet.bullets){
                 Enemy.DestroyEnemyCheckAll(b.bulletRec);
+                    }
+                }
             }
+            
 
             mobSpawners.Draw();
             gameUI.DrawUI();

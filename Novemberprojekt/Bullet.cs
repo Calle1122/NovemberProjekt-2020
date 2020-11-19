@@ -11,6 +11,9 @@ namespace Novemberprojekt
         public float bulletVelocity;
         public static List<Bullet> bullets = new List<Bullet>();
 
+        //Skapas eftersom man inte kan göra .Remove(this) av orginella listan i en foreach loop.
+        public static List<Bullet> bulletsCopy = new List<Bullet>();
+
         Color darkGreen = new Color (48, 98, 48, 255);
 
         public Rectangle bulletRec;
@@ -26,6 +29,8 @@ namespace Novemberprojekt
     }
 
     public void Update(){
+        bulletsCopy = bullets;
+
         if (initKey == KeyboardKey.KEY_W){
             bulletRec.y -= 6f;
         }
@@ -65,13 +70,19 @@ namespace Novemberprojekt
     }
 
     public void DestroyBullet(){
-        bullets.Remove(this);
+        if (bullets.Count > 0){
+            bullets.Remove(this);
+        }
+        
     }
 
     public static void DestroyBulletsAll(){
-        foreach(Bullet b in bullets){
+
+        if (bullets.Count > 0){
+            foreach(Bullet b in bulletsCopy){
             b.DestroyBullet();
         }
+        }  
     }
 
     //Koden nedan används inte atm
