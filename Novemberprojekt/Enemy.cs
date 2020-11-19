@@ -7,8 +7,8 @@ namespace Novemberprojekt
     public class Enemy
     {
         Random generator = new Random();
-        int Score = 0;
-        int HiScore;
+        public int Score = 0;
+        public int HiScore;
         int enemyHp;
         float enemySpeed;
 
@@ -39,6 +39,22 @@ namespace Novemberprojekt
             }
             
             enemies.Add(this);
+        }
+
+        public void DestroyEnemy(Rectangle bulletCollider){
+            if(Raylib.CheckCollisionRecs(bulletCollider, enemyRec) == true){
+                enemies.Remove(this);
+
+                Bullet.DestroyBulletsAll();
+
+                Score++;
+            }
+        }
+
+        public static void DestroyEnemyCheckAll(Rectangle bulletCollider){
+            foreach (Enemy e in enemies){
+                e.DestroyEnemy(bulletCollider);
+            }
         }
 
         public void SpawnEnemy(int SpawnerId){

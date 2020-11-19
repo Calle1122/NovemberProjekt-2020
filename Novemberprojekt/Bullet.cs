@@ -64,6 +64,16 @@ namespace Novemberprojekt
             }
     }
 
+    public void DestroyBullet(){
+        bullets.Remove(this);
+    }
+
+    public static void DestroyBulletsAll(){
+        foreach(Bullet b in bullets){
+            b.DestroyBullet();
+        }
+    }
+
     //Koden nedan används inte atm
     /*public void Destroy(){
         if(bulletRec.y < 150){

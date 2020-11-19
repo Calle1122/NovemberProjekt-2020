@@ -45,6 +45,10 @@ namespace Novemberprojekt
       
             Raylib.ClearBackground(lightestGreen);
             
+            foreach(Bullet b in Bullet.bullets){
+                Enemy.DestroyEnemyCheckAll(b.bulletRec);
+            }
+
             mobSpawners.Draw();
             gameUI.DrawUI();
             myPlayer.Draw();
