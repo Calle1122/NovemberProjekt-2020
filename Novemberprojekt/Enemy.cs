@@ -6,8 +6,8 @@ namespace Novemberprojekt
 {
     public class Enemy
     {
+        public bool destroyThis= false;
         Random generator = new Random();
-        public int Score = 0;
         public int HiScore;
         int enemyHp;
         float enemySpeed;
@@ -15,7 +15,7 @@ namespace Novemberprojekt
         int xValue;
         int yValue;
 
-        Rectangle enemyRec = new Rectangle(0, 0, 0, 0);
+        public Rectangle enemyRec = new Rectangle(0, 0, 0, 0);
 
         public static List<Enemy> enemies = new List<Enemy>();
 
@@ -42,23 +42,14 @@ namespace Novemberprojekt
         }
 
         public void DestroyEnemy(Rectangle bulletCollider){
-
-            if(Raylib.CheckCollisionRecs(bulletCollider, enemyRec) == true){
-                enemies.Remove(this);
-
-                Bullet.DestroyBulletsAll();
-
-                Score++;
-            }
+                enemies.RemoveAll(x => Raylib.CheckCollisionRecs(bulletCollider, enemyRec));
         }
 
         public static void DestroyEnemyCheckAll(Rectangle bulletCollider){
 
-            if (enemies.Count > 0){
-                foreach (Enemy e in enemies){
-                e.DestroyEnemy(bulletCollider);
-            }
-            }
+                    foreach (Enemy e in enemies){
+                        e.DestroyEnemy(bulletCollider);
+                    }
         }
 
         public void SpawnEnemy(int SpawnerId){
@@ -116,6 +107,8 @@ namespace Novemberprojekt
             foreach (Enemy e in enemies){
                 e.Update(playerXint, playerYint);
             }
+
+            enemies.RemoveAll(e => e.destroyThis == true);
         }
 
         public void Draw(){

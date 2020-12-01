@@ -7,6 +7,8 @@ namespace Novemberprojekt
     
     public class Bullet
     {
+        public bool destroyThis = false;
+
         KeyboardKey initKey;
         public float bulletVelocity;
         public static List<Bullet> bullets = new List<Bullet>();
@@ -46,7 +48,16 @@ namespace Novemberprojekt
         else if (initKey == KeyboardKey.KEY_A){
             bulletRec.x -= 6f;
         }
-        
+
+        foreach (Enemy e in Enemy.enemies)
+        {
+            if (Raylib.CheckCollisionRecs(bulletRec, e.enemyRec) && destroyThis == false)
+            {
+                this.destroyThis = true;
+                e.destroyThis = true;
+            }
+        }
+
     }
 
     public static void UpdateAll(){
@@ -54,6 +65,8 @@ namespace Novemberprojekt
             {
                 b.Update();
             }
+
+        bullets.RemoveAll(b => b.destroyThis == true);
     }
 
     public void Draw(){
@@ -70,33 +83,17 @@ namespace Novemberprojekt
     }
 
     public void DestroyBullet(){
-        if (bullets.Count > 0){
-            bullets.Remove(this);
-        }
+        
+        bullets.RemoveAll(x => x.destroyThis == true);
         
     }
 
     public static void DestroyBulletsAll(){
-
-        if (bullets.Count > 0){
-            foreach(Bullet b in bulletsCopy){
-            b.DestroyBullet();
-        }
-        }  
-    }
-
-    //Koden nedan används inte atm
-    /*public void Destroy(){
-        if(bulletRec.y < 150){
-            
-        }
-    }*/
-
-    /*public static void DestroyAll(){
         foreach (Bullet b in bullets){
-            
-        }
-    }*/
-        
+                        b.DestroyBullet();
+                    }
+
+    }
+             
     }
 }
