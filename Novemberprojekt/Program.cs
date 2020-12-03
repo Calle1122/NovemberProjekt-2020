@@ -27,7 +27,7 @@ namespace Novemberprojekt
 
             Spawner mobSpawners = new Spawner();
 
-            Enemy activeEnemies = new Enemy();
+            Enemy activeEnemies = new Enemy(gameUI);
 
             while (!Raylib.WindowShouldClose())
             {
@@ -37,22 +37,13 @@ namespace Novemberprojekt
 
             myPlayer.Update();
             Bullet.UpdateAll();
-            Enemy.UpdateAll(playerCollider.x, playerCollider.y);
+            Enemy.UpdateAll(myPlayer.playerRec.x, myPlayer.playerRec.y);
 
             KeyboardKey keyPressed = myPlayer.lastKeyPressed;
 
             Raylib.BeginDrawing();
       
             Raylib.ClearBackground(lightestGreen);
-            
-            /*if(Bullet.bullets.Count > 0){
-                if(Enemy.enemies.Count > 0){
-                    foreach(Bullet b in Bullet.bullets){
-                        Enemy.DestroyEnemyCheckAll(b.bulletRec);
-                    }
-                }
-            }*/
-            
 
             mobSpawners.Draw();
             gameUI.DrawUI();
@@ -63,24 +54,13 @@ namespace Novemberprojekt
 
             if(Raylib.IsKeyPressed(KeyboardKey.KEY_G))
             {
-                Enemy newEnemy = new Enemy();
+                Enemy newEnemy = new Enemy(gameUI);
             }
 
             if(Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
             }
-
-            //Följande kodblock fungerar inte!
-            foreach (Rectangle r in Wall.wallList){
-                bool areOverlapping = Raylib.CheckCollisionRecs(playerCollider, r);
-
-                if (areOverlapping == true){
-                    Raylib.DrawText("Colliding: " + areOverlapping, 500, 0, 50, darkestGreen);
-                }
-            }
-
-            
 
             Raylib.EndDrawing();
 

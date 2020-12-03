@@ -54,7 +54,7 @@ namespace Novemberprojekt
             if (Raylib.CheckCollisionRecs(bulletRec, e.enemyRec) && destroyThis == false)
             {
                 this.destroyThis = true;
-                e.destroyThis = true;
+                e.DestroyThis = true;
             }
         }
 
