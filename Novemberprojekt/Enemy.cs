@@ -54,7 +54,23 @@ namespace Novemberprojekt
                 enemyHp = 1;
                 enemySpeed = 4f;
 
-                enemyRec = new Rectangle(0, 0, 20, 20);
+                int spawnId = generator.Next(1, 5);
+
+                if(spawnId == 1){
+                    enemyRec = new Rectangle(110, 260, 20, 20);
+                }
+
+                else if(spawnId == 2){
+                    enemyRec = new Rectangle(900, 260, 20, 20);
+                }
+
+                else if(spawnId == 3){
+                    enemyRec = new Rectangle(110, 700, 20, 20);
+                }
+
+                else{
+                    enemyRec = new Rectangle(900, 700, 20, 20);
+                }
             }
 
             else if (enemyType == 2)
@@ -62,7 +78,24 @@ namespace Novemberprojekt
                 enemyHp = 3;
                 enemySpeed = 2f;
 
-                enemyRec = new Rectangle(0, 0, 40, 40);
+                int spawnId = generator.Next(1, 5);
+
+                if(spawnId == 1){
+                    enemyRec = new Rectangle(110, 260, 40, 40);
+                }
+
+                else if(spawnId == 2){
+                    enemyRec = new Rectangle(900, 260, 40, 40);
+                }
+
+                else if(spawnId == 3){
+                    enemyRec = new Rectangle(110, 700, 40, 40);
+                }
+
+                else{
+                    enemyRec = new Rectangle(900, 700, 40, 40);
+                }
+
             }
 
             enemies.Add(this);
