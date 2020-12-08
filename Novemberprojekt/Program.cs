@@ -82,7 +82,7 @@ namespace Novemberprojekt
 
                 }
 
-                
+
 
                 //GAME SCREEN:
 
@@ -112,8 +112,6 @@ namespace Novemberprojekt
 
                     KeyboardKey keyPressed = myPlayer.lastKeyPressed;
 
-                    
-
                     Raylib.ClearBackground(lightestGreen);
 
                     mobSpawners.Draw();
@@ -131,6 +129,17 @@ namespace Novemberprojekt
                     if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
                     {
                         Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+                    }
+
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT_SHIFT)){
+                        keyPressed = KeyboardKey.KEY_W;
+                        Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+                        keyPressed = KeyboardKey.KEY_D;
+                        Bullet newBullet1 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+                        keyPressed = KeyboardKey.KEY_S;
+                        Bullet newBullet2 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+                        keyPressed = KeyboardKey.KEY_A;
+                        Bullet newBullet3 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
                     }
                 }
 
