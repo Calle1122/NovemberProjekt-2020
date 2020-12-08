@@ -6,6 +6,13 @@ namespace Novemberprojekt
 {
     class Program
     {
+
+        enum GameScreens {
+        Title,
+        Game,
+        End
+        }
+
         static void Main(string[] args)
         {
             float currentTime = 0;
@@ -32,8 +39,37 @@ namespace Novemberprojekt
 
             Enemy activeEnemies = new Enemy(gameUI);
 
+            GameScreens screen = GameScreens.Title;
+
             while (!Raylib.WindowShouldClose())
             {
+
+                //TITLE SCREEN:
+
+
+                if(screen == GameScreens.Title){
+
+                }
+
+
+                //GAME SCREEN:
+
+
+                if(screen == GameScreens.Game){
+
+                }
+
+
+                //END GAME SCREEN:
+
+
+                if(screen == GameScreens.End){
+                    
+                }
+
+
+
+
                 currentTime += Raylib.GetFrameTime();
                 if (currentTime > maxTime)
                 {
