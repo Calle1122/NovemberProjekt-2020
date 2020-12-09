@@ -49,6 +49,26 @@ namespace Novemberprojekt
             bulletRec.x -= 6f;
         }
 
+        else if (initKey == KeyboardKey.KEY_O){
+            bulletRec.x += 6f;
+            bulletRec.y += 6f;
+        }
+
+        else if (initKey == KeyboardKey.KEY_P){
+            bulletRec.x -= 6f;
+            bulletRec.y += 6f;
+        }
+
+        else if (initKey == KeyboardKey.KEY_K){
+            bulletRec.x += 6f;
+            bulletRec.y -= 6f;
+        }
+
+        else if (initKey == KeyboardKey.KEY_L){
+            bulletRec.x -= 6f;
+            bulletRec.y -= 6f;
+        }
+
         foreach (Enemy e in Enemy.enemies)
         {
             if (Raylib.CheckCollisionRecs(bulletRec, e.enemyRec) && destroyThis == false)

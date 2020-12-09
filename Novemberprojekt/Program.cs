@@ -140,6 +140,14 @@ namespace Novemberprojekt
                         Bullet newBullet2 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
                         keyPressed = KeyboardKey.KEY_A;
                         Bullet newBullet3 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+                        keyPressed = KeyboardKey.KEY_O;
+                        Bullet newBullet4 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+                        keyPressed = KeyboardKey.KEY_P;
+                        Bullet newBullet5 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+                        keyPressed = KeyboardKey.KEY_K;
+                        Bullet newBullet6 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+                        keyPressed = KeyboardKey.KEY_L;
+                        Bullet newBullet7 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
                     }
                 }
 
