@@ -21,6 +21,9 @@ namespace Novemberprojekt
             float currentTime = 0;
             float maxTime = 6;
 
+            float superTime = 0;
+            float superMaxTime = 10;
+
             Color lightestGreen = new Color(155, 188, 15, 255);
             Color lightGreen = new Color(139, 172, 15, 255);
             Color darkGreen = new Color(48, 98, 48, 255);
@@ -131,7 +134,12 @@ namespace Novemberprojekt
                         Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
                     }
 
-                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT_SHIFT)){
+
+                    superTime += Raylib.GetFrameTime();
+
+                    if (superTime > superMaxTime)
+                    {
+                        if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT_SHIFT)){
                         keyPressed = KeyboardKey.KEY_W;
                         Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
                         keyPressed = KeyboardKey.KEY_D;
@@ -148,7 +156,14 @@ namespace Novemberprojekt
                         Bullet newBullet6 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
                         keyPressed = KeyboardKey.KEY_L;
                         Bullet newBullet7 = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
+
+                        superTime = 0;
+
+                        }
                     }
+
+
+                    
                 }
 
 
