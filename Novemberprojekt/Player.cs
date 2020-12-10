@@ -100,9 +100,21 @@ namespace Novemberprojekt
         Raylib.DrawRectangle(280, 20, 40, 40, darkGreen);
         Raylib.DrawRectangle(350, 20, 40, 40, darkGreen);
       }
+
+      if(playerHealth < 0){
+        playerHealth = 0;
+      }
     }
 
+    public bool CheckPlayerHp(){
+      if(playerHealth == 0){
+        return true;
+      }
 
+      else{
+        return false;
+      }
+    }
 
 
     }

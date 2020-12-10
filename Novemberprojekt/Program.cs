@@ -15,6 +15,8 @@ namespace Novemberprojekt
 
         static void Main(string[] args)
         {
+            bool endGame = false;
+
             float startTime = 0;
             float maxStartTime = 6;
 
@@ -168,6 +170,14 @@ namespace Novemberprojekt
                     if (superTime < superMaxTime){
                         Raylib.DrawText("LOADING...", 680, 20, 50, darkGreen);
                     }
+
+
+                    endGame = myPlayer.CheckPlayerHp();
+
+                    if(endGame == true){
+                        screen = GameScreens.End;
+                    }
+
                     
                 }
 
@@ -176,7 +186,8 @@ namespace Novemberprojekt
 
 
                 if(screen == GameScreens.End){
-
+                    Raylib.ClearBackground(darkestGreen);
+                    Raylib.DrawText("You Died!", 355, 350, 70, lightGreen);
                 }
 
 
