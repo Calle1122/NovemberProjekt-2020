@@ -188,6 +188,8 @@ namespace Novemberprojekt
                 if(screen == GameScreens.End){
                     Raylib.ClearBackground(darkestGreen);
                     Raylib.DrawText("You Died!", 355, 350, 70, lightGreen);
+
+                    Raylib.DrawText("Score: " + gameUI.score, 405, 450, 50, lightestGreen);
                 }
 
 
