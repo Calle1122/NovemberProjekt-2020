@@ -20,5 +20,14 @@ namespace Novemberprojekt
         public void AddScore(){
             score++;
         }
+
+        public void ScoreFix(){
+            if(score > hiScore){
+                hiScore = score;
+            }
+
+            score = 0;
+        }
+
     }
 }

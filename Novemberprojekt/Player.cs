@@ -116,6 +116,9 @@ namespace Novemberprojekt
       }
     }
 
+    public void ResetPlayerHp(){
+      playerHealth = 3;
+    }
 
     }
 }

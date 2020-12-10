@@ -121,7 +121,7 @@ namespace Novemberprojekt
                 
 
 
-
+                
                 //GAME SCREEN:
 
 
@@ -223,6 +223,16 @@ namespace Novemberprojekt
                     Raylib.DrawText("You Died!", 355, 350, 70, lightGreen);
 
                     Raylib.DrawText("Score: " + gameUI.score, 405, 450, 50, lightestGreen);
+
+                    Raylib.DrawText("Press 'R' to Restart", 250, 650, 50, lightestGreen);
+
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_R))
+                    {
+                        screen = GameScreens.Title;
+
+                        gameUI.ScoreFix();
+                        myPlayer.ResetPlayerHp();
+                    }
                 }
 
 
