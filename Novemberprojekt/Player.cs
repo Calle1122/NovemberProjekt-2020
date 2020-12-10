@@ -10,6 +10,8 @@ namespace Novemberprojekt
 
         public int playerHealth = 3;
 
+        public bool destroyThis = false;
+
         public KeyboardKey lastKeyPressed;
 
         public Rectangle playerRec;
@@ -66,6 +68,15 @@ namespace Novemberprojekt
       if (playerRec.y > 700){
         playerRec.y = 700;
       }
+
+      foreach (Enemy e in Enemy.enemies)
+        {
+            if (Raylib.CheckCollisionRecs(playerRec, e.enemyRec) && destroyThis == false)
+            {
+                e.DestroyThis = true;
+                playerHealth --;
+            }
+        }
     }
 
     public void Draw()
