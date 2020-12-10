@@ -120,6 +120,7 @@ namespace Novemberprojekt
                     mobSpawners.Draw();
                     gameUI.DrawUI();
                     myPlayer.Draw();
+                    myPlayer.DrawHP();
                     Bullet.DrawAll();
                     Enemy.DrawAll();
                     gameWalls.Draw();

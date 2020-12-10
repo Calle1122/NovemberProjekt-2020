@@ -11,8 +11,9 @@ namespace Novemberprojekt
         Color darkestGreen = new Color (15, 56, 15, 255);
 
         public void DrawUI(){
-            Raylib.DrawText("Score: " + score, 30, 70, 70, darkestGreen);
-            Raylib.DrawText("HiScore: " + hiScore, 500, 70, 70, darkestGreen);
+            Raylib.DrawText("Score: " + score, 30, 80, 50, darkestGreen);
+            Raylib.DrawText("HiScore: " + hiScore, 500, 80, 50, darkestGreen);
+            Raylib.DrawText("Health: ", 30, 20, 50, darkestGreen);
         }
 
         public void AddScore(){

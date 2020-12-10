@@ -8,6 +8,8 @@ namespace Novemberprojekt
     {
         Color darkGreen = new Color (48, 98, 48, 255);
 
+        public int playerHealth = 3;
+
         public KeyboardKey lastKeyPressed;
 
         public Rectangle playerRec;
@@ -70,6 +72,26 @@ namespace Novemberprojekt
     {
       Raylib.DrawRectangleRec(playerRec, darkGreen);
     }
+
+    public void DrawHP()
+    {
+      if (playerHealth == 1){
+        Raylib.DrawRectangle(210, 20, 40, 40, darkGreen);
+      }
+
+      if (playerHealth == 2){
+        Raylib.DrawRectangle(210, 20, 40, 40, darkGreen);
+        Raylib.DrawRectangle(280, 20, 40, 40, darkGreen);
+      }
+
+      if (playerHealth == 3){
+        Raylib.DrawRectangle(210, 20, 40, 40, darkGreen);
+        Raylib.DrawRectangle(280, 20, 40, 40, darkGreen);
+        Raylib.DrawRectangle(350, 20, 40, 40, darkGreen);
+      }
+    }
+
+
 
 
     }
