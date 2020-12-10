@@ -140,6 +140,8 @@ namespace Novemberprojekt
 
                     if (superTime > superMaxTime)
                     {
+                        Raylib.DrawText("READY!", 680, 20, 50, darkGreen);
+
                         if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT_SHIFT)){
                         keyPressed = KeyboardKey.KEY_W;
                         Bullet newBullet = new Bullet(myPlayer.playerRec.x, myPlayer.playerRec.y, keyPressed);
@@ -163,7 +165,9 @@ namespace Novemberprojekt
                         }
                     }
 
-
+                    if (superTime < superMaxTime){
+                        Raylib.DrawText("LOADING...", 680, 20, 50, darkGreen);
+                    }
                     
                 }
 

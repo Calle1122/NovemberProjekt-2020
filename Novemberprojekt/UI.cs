@@ -14,6 +14,7 @@ namespace Novemberprojekt
             Raylib.DrawText("Score: " + score, 30, 80, 50, darkestGreen);
             Raylib.DrawText("HiScore: " + hiScore, 500, 80, 50, darkestGreen);
             Raylib.DrawText("Health: ", 30, 20, 50, darkestGreen);
+            Raylib.DrawText("Ability: ", 500, 20, 50, darkestGreen);
         }
 
         public void AddScore(){
