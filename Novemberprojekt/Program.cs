@@ -10,6 +10,7 @@ namespace Novemberprojekt
         enum GameScreens {
         Title,
         Help,
+        Settings, 
         Game,
         End
         }
@@ -19,6 +20,8 @@ namespace Novemberprojekt
         static void Main(string[] args)
         {
             bool endGame = false;
+
+            bool overlayOn = false;
 
             float startTime = 0;
             float maxStartTime = 6;
@@ -34,14 +37,10 @@ namespace Novemberprojekt
             Color darkGreen = new Color(48, 98, 48, 255);
             Color darkestGreen = new Color(15, 56, 15, 255);
 
-            Color nightBlack = new Color(0, 0, 0, 255);
-            Color nightPurple = new Color(82, 5, 123, 255);
-            Color nightLightPurple = new Color(137, 44, 220, 255);
-            Color nightPink = new Color(188, 111, 241, 255);
+            Color overlayColor = new Color(65, 46, 100, 150);
 
             Raylib.InitWindow(1000, 800, "Slime Shooter");
             Raylib.SetTargetFPS(60);
-
 
             Player myPlayer = new Player(500, 400, KeyboardKey.KEY_W, KeyboardKey.KEY_S, KeyboardKey.KEY_D, KeyboardKey.KEY_A);
 
@@ -79,10 +78,21 @@ namespace Novemberprojekt
                         screen = GameScreens.Help;
                     }
 
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_H))
+                    {
+                        screen = GameScreens.Help;
+                    }
+
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_S))
+                    {
+                        screen = GameScreens.Settings;
+                    }
+
                     Raylib.ClearBackground(lightGreen);
                     Raylib.DrawText("Press ENTER to start", 115, 350, 70, darkestGreen);
 
                     Raylib.DrawText("Press 'H' for Help", 315, 650, 40, darkestGreen);
+                    Raylib.DrawText("Press 'S' for Settings", 280, 725, 40, darkestGreen);
 
                     startTime += Raylib.GetFrameTime();
 
@@ -98,6 +108,48 @@ namespace Novemberprojekt
                     if(startTime < 6 && startTime > 5){
                         Raylib.DrawRectangleRec(flashingRec, darkestGreen);
                     }
+
+                }
+
+
+
+                //SETTINGS SCREEN:
+
+                if (screen == GameScreens.Settings){
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_B))
+                    {
+                        screen = GameScreens.Title;
+                    }
+
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
+                    {
+                        if(overlayOn == false){
+                            overlayOn = true;
+                        }
+
+                        else if(overlayOn == true){
+                            overlayOn = false;
+                        }  
+                    }
+
+                    Raylib.ClearBackground(lightestGreen);
+                    Raylib.DrawText("SETTINGS", 295, 150, 70, darkGreen);
+
+                    Raylib.DrawRectangle(295, 230, 390, 15, darkGreen);
+
+                    Raylib.DrawText("Toggle shaders with ENTER key", 250, 300, 30, darkGreen);
+
+                    Raylib.DrawText("<               >", 180, 400, 100, darkGreen);
+
+                    if(overlayOn == false){
+                        Raylib.DrawText("NORMAL", 330, 400, 90, darkGreen);
+                    }
+
+                    if(overlayOn == true){
+                        Raylib.DrawText("SILENT NIGHT", 250, 410, 70, darkGreen);
+                    }
+
+                    Raylib.DrawText("Press 'B' to go Back", 200, 700, 60, darkestGreen);
 
                 }
 
@@ -243,6 +295,14 @@ namespace Novemberprojekt
                         maxTime = 6;
                     }
                 }
+
+
+                //IF OVERLAY IS ON
+
+                if(overlayOn == true){
+                    Raylib.DrawRectangle(0, 0, 1500, 1500, overlayColor);
+                }
+
 
 
                 Raylib.EndDrawing();
