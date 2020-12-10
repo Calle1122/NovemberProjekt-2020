@@ -14,6 +14,8 @@ namespace Novemberprojekt
         End
         }
 
+        
+
         static void Main(string[] args)
         {
             bool endGame = false;
@@ -31,6 +33,11 @@ namespace Novemberprojekt
             Color lightGreen = new Color(139, 172, 15, 255);
             Color darkGreen = new Color(48, 98, 48, 255);
             Color darkestGreen = new Color(15, 56, 15, 255);
+
+            Color nightBlack = new Color(0, 0, 0, 255);
+            Color nightPurple = new Color(82, 5, 123, 255);
+            Color nightLightPurple = new Color(137, 44, 220, 255);
+            Color nightPink = new Color(188, 111, 241, 255);
 
             Raylib.InitWindow(1000, 800, "Slime Shooter");
             Raylib.SetTargetFPS(60);
@@ -232,6 +239,8 @@ namespace Novemberprojekt
 
                         gameUI.ScoreFix();
                         myPlayer.ResetPlayerHp();
+
+                        maxTime = 6;
                     }
                 }
 
