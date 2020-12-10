@@ -9,6 +9,7 @@ namespace Novemberprojekt
 
         enum GameScreens {
         Title,
+        Help,
         Game,
         End
         }
@@ -66,9 +67,15 @@ namespace Novemberprojekt
                         screen = GameScreens.Game;
                     }
 
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_H))
+                    {
+                        screen = GameScreens.Help;
+                    }
+
                     Raylib.ClearBackground(lightGreen);
                     Raylib.DrawText("Press ENTER to start", 115, 350, 70, darkestGreen);
 
+                    Raylib.DrawText("Press 'H' for Help", 315, 650, 40, darkestGreen);
 
                     startTime += Raylib.GetFrameTime();
 
@@ -86,6 +93,32 @@ namespace Novemberprojekt
                     }
 
                 }
+
+
+
+
+                //HELP SCREEN:
+
+                if (screen == GameScreens.Help){
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_B))
+                    {
+                        screen = GameScreens.Title;
+                    }
+
+                    Raylib.ClearBackground(lightestGreen);
+                    Raylib.DrawText("CONTROLS", 295, 150, 70, darkGreen);
+
+                    Raylib.DrawRectangle(295, 230, 390, 15, darkGreen);
+
+                    Raylib.DrawText("Move:  W/A/S/D", 300, 300, 50, darkGreen);
+                    Raylib.DrawText("Shoot:  SPACE", 300, 400, 50, darkGreen);
+                    Raylib.DrawText("Ability:  L-SHIFT", 300, 500, 50, darkGreen);
+
+                    Raylib.DrawText("Press 'B' to go Back", 200, 700, 60, darkestGreen);
+
+                }
+
+                
 
 
 
