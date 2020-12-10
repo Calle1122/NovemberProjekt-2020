@@ -21,7 +21,7 @@ namespace Novemberprojekt
         {
             bool endGame = false;
 
-            bool overlayOn = false;
+            int shaderCount = 0;
 
             float startTime = 0;
             float maxStartTime = 6;
@@ -37,7 +37,11 @@ namespace Novemberprojekt
             Color darkGreen = new Color(48, 98, 48, 255);
             Color darkestGreen = new Color(15, 56, 15, 255);
 
-            Color overlayColor = new Color(65, 46, 100, 150);
+            Color silentNight = new Color(65, 46, 100, 150);
+            Color pinkParty = new Color(255, 0, 221, 150);
+            Color redHills = new Color(255, 85, 0, 150);
+            Color waterBubbles = new Color(0, 255, 191, 150);
+            Color greeeeen = new Color(0, 255, 26, 150);
 
             Raylib.InitWindow(1000, 800, "Slime Shooter");
             Raylib.SetTargetFPS(60);
@@ -123,12 +127,10 @@ namespace Novemberprojekt
 
                     if (Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
                     {
-                        if(overlayOn == false){
-                            overlayOn = true;
-                        }
+                        shaderCount++;
 
-                        else if(overlayOn == true){
-                            overlayOn = false;
+                        if(shaderCount > 5){
+                            shaderCount = 0;
                         }  
                     }
 
@@ -141,12 +143,28 @@ namespace Novemberprojekt
 
                     Raylib.DrawText("<               >", 180, 400, 100, darkGreen);
 
-                    if(overlayOn == false){
+                    if(shaderCount == 0){
                         Raylib.DrawText("NORMAL", 330, 400, 90, darkGreen);
                     }
 
-                    if(overlayOn == true){
+                    if(shaderCount == 1){
                         Raylib.DrawText("SILENT NIGHT", 250, 410, 70, darkGreen);
+                    }
+
+                    if(shaderCount == 2){
+                        Raylib.DrawText("PINK PARTY", 280, 410, 70, darkGreen);
+                    }
+
+                    if(shaderCount == 3){
+                        Raylib.DrawText("RED HILLS", 300, 410, 80, darkGreen);
+                    }
+
+                    if(shaderCount == 4){
+                        Raylib.DrawText("WATER BUBBLES", 250, 420, 60, darkGreen);
+                    }
+
+                    if(shaderCount == 5){
+                        Raylib.DrawText("GREEEEEN", 260, 400, 90, darkGreen);
                     }
 
                     Raylib.DrawText("Press 'B' to go Back", 200, 700, 60, darkestGreen);
@@ -299,11 +317,25 @@ namespace Novemberprojekt
 
                 //IF OVERLAY IS ON
 
-                if(overlayOn == true){
-                    Raylib.DrawRectangle(0, 0, 1500, 1500, overlayColor);
+                if(shaderCount == 1){
+                    Raylib.DrawRectangle(0, 0, 1500, 1500, silentNight);
                 }
 
+                else if(shaderCount == 2){
+                    Raylib.DrawRectangle(0, 0, 1500, 1500, pinkParty);
+                }
 
+                else if(shaderCount == 3){
+                    Raylib.DrawRectangle(0, 0, 1500, 1500, redHills);
+                }
+
+                else if(shaderCount == 4){
+                    Raylib.DrawRectangle(0, 0, 1500, 1500, waterBubbles);
+                }
+
+                else if(shaderCount == 5){
+                    Raylib.DrawRectangle(0, 0, 1500, 1500, greeeeen);
+                }
 
                 Raylib.EndDrawing();
 
