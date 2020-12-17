@@ -11,6 +11,7 @@ namespace Novemberprojekt
         Title,
         Help,
         Settings, 
+        CustomPlayer,
         Game,
         End
         }
@@ -77,6 +78,11 @@ namespace Novemberprojekt
                         screen = GameScreens.Game;
                     }
 
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_C))
+                    {
+                        screen = GameScreens.CustomPlayer;
+                    }
+
                     if (Raylib.IsKeyPressed(KeyboardKey.KEY_H))
                     {
                         screen = GameScreens.Help;
@@ -95,8 +101,9 @@ namespace Novemberprojekt
                     Raylib.ClearBackground(lightGreen);
                     Raylib.DrawText("Press ENTER to start", 115, 350, 70, darkestGreen);
 
-                    Raylib.DrawText("Press 'H' for Help", 315, 650, 40, darkestGreen);
-                    Raylib.DrawText("Press 'S' for Settings", 280, 725, 40, darkestGreen);
+                    Raylib.DrawText("Press 'H' for Help", 315, 600, 40, darkestGreen);
+                    Raylib.DrawText("Press 'S' for Settings", 280, 670, 40, darkestGreen);
+                    Raylib.DrawText("Press 'C' for Customization", 220, 735, 40, darkestGreen);
 
                     startTime += Raylib.GetFrameTime();
 
@@ -165,6 +172,58 @@ namespace Novemberprojekt
 
                     if(shaderCount == 5){
                         Raylib.DrawText("GREEEEEN", 260, 400, 90, darkGreen);
+                    }
+
+                    Raylib.DrawText("Press 'B' to go Back", 200, 700, 60, darkestGreen);
+
+                }
+
+
+                
+                //CUSTOM PLAYER SCREEN:
+
+                if(screen == GameScreens.CustomPlayer){
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_B))
+                    {
+                        screen = GameScreens.Title;
+                    }
+
+                    int hatCount = 0;
+                    
+                    Raylib.ClearBackground(lightestGreen);
+
+                    Raylib.DrawText("HATS", 380, 75, 80, darkGreen);
+                    Raylib.DrawRectangle(345, 150, 300, 15, darkGreen);
+
+                    Raylib.DrawText("Press ENTER to toggle between Hats", 210, 190, 30, darkestGreen);
+
+                    Raylib.DrawRectangle(630, 300, 15, 350, darkestGreen);
+                    Raylib.DrawRectangle(900, 300, 15, 350, darkestGreen);
+                    Raylib.DrawRectangle(630, 300, 270, 15, darkestGreen);
+                    Raylib.DrawRectangle(630, 635, 270, 15, darkestGreen);
+
+                    Raylib.DrawRectangle(750, 450, 50, 100, darkGreen);
+
+                    Raylib.DrawText("<          >", 80, 430, 100, darkestGreen);
+
+                    if(Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER)){
+                        hatCount++;
+
+                        if(hatCount > 2){
+                            hatCount = 0;
+                        }
+                    }
+
+                    if(hatCount == 0){
+                        Raylib.DrawText("No Hat", 180, 440, 80, darkestGreen);
+                    }
+
+                    if(hatCount == 1){
+
+                    }
+
+                    if(hatCount == 2){
+
                     }
 
                     Raylib.DrawText("Press 'B' to go Back", 200, 700, 60, darkestGreen);
