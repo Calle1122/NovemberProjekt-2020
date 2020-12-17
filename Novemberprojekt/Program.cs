@@ -23,6 +23,7 @@ namespace Novemberprojekt
             bool endGame = false;
 
             int shaderCount = 0;
+            int hatCount = 0;
 
             float startTime = 0;
             float maxStartTime = 6;
@@ -187,8 +188,6 @@ namespace Novemberprojekt
                     {
                         screen = GameScreens.Title;
                     }
-
-                    int hatCount = 0;
                     
                     Raylib.ClearBackground(lightestGreen);
 
@@ -207,7 +206,8 @@ namespace Novemberprojekt
                     Raylib.DrawText("<          >", 80, 430, 100, darkestGreen);
 
                     if(Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER)){
-                        hatCount++;
+
+                        hatCount = hatCount + 1;
 
                         if(hatCount > 2){
                             hatCount = 0;
@@ -219,11 +219,11 @@ namespace Novemberprojekt
                     }
 
                     if(hatCount == 1){
-
+                        Raylib.DrawText("Top Hat", 150, 440, 80, darkestGreen);
                     }
 
                     if(hatCount == 2){
-
+                        Raylib.DrawText("CAP", 220, 440, 90, darkestGreen);
                     }
 
                     Raylib.DrawText("Press 'B' to go Back", 200, 700, 60, darkestGreen);
