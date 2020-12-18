@@ -302,6 +302,14 @@ namespace Novemberprojekt
                     Enemy.DrawAll();
                     gameWalls.Draw();
 
+                    if(hatCount == 1){
+                        myPlayer.DrawTopHat();
+                    }
+
+                    if(hatCount == 2){
+                        myPlayer.DrawCAP();
+                    }
+
                     if (Raylib.IsKeyPressed(KeyboardKey.KEY_G))
                     {
                         Enemy newEnemy = new Enemy(gameUI);

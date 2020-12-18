@@ -120,5 +120,16 @@ namespace Novemberprojekt
       playerHealth = 3;
     }
 
+    public void DrawTopHat(){
+      Raylib.DrawRectangle((int)playerRec.x - 10, (int)playerRec.y - 10, 50, 10, darkGreen);
+      Raylib.DrawRectangle((int)playerRec.x, (int)playerRec.y - 30, 30, 30, darkGreen);
     }
+
+    public void DrawCAP(){
+      Raylib.DrawRectangle((int)playerRec.x, (int)playerRec.y - 10, 50, 15, darkGreen);
+      Raylib.DrawRectangle((int)playerRec.x, (int)playerRec.y - 30, 30, 30, darkGreen);
+    }
+
+  }
+
 }
