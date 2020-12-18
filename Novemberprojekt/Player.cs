@@ -127,7 +127,7 @@ namespace Novemberprojekt
 
     public void DrawCAP(){
       Raylib.DrawRectangle((int)playerRec.x, (int)playerRec.y - 10, 50, 15, darkGreen);
-      Raylib.DrawRectangle((int)playerRec.x, (int)playerRec.y - 30, 30, 30, darkGreen);
+      Raylib.DrawRectangle((int)playerRec.x, (int)playerRec.y - 30, 35, 30, darkGreen);
     }
 
   }
