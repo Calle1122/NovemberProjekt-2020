@@ -7,6 +7,7 @@ namespace Novemberprojekt
     public class UI
     {
         public int score = 0;
+        public int coins = 0;
         public int hiScore = 0;
         Color darkestGreen = new Color (15, 56, 15, 255);
 
@@ -19,6 +20,7 @@ namespace Novemberprojekt
 
         public void AddScore(){
             score++;
+            coins++;
         }
 
         public void ScoreFix(){

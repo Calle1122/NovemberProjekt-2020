@@ -106,6 +106,8 @@ namespace Novemberprojekt
                     Raylib.DrawText("Press 'S' for Settings", 280, 670, 40, darkestGreen);
                     Raylib.DrawText("Press 'C' for Customization", 220, 735, 40, darkestGreen);
 
+                    Raylib.DrawRectangle(275, 50, 450, 250, darkestGreen);
+
                     startTime += Raylib.GetFrameTime();
 
                     if (startTime > maxStartTime)
